@@ -1,6 +1,6 @@
 
 [build]
-  command = "node index"
+  command = "node script"
   publish = "public"
 
 [functions]
