@@ -4,7 +4,6 @@
   "name": "ytdl-bot",
   "version": "1.0.0",
   "main": "index.js",
-  "build": "npm build",
   "scripts": {
     "start": "node index.js"
   },
