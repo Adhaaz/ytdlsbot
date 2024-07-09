@@ -1,6 +1,5 @@
 
 
-
 const { Telegraf, Markup } = require('telegraf');
 const ytdl = require('ytdl-core');
 const streamBuffers = require('stream-buffers');
@@ -44,7 +43,13 @@ module.exports = (bot) => {
                     [Markup.button.callback('Audio', 'download_audio')]
                 ]));
             }
-        }
+        },
+        {
+         command: 'start',
+            handler: async (ctx) => {
+             ctx.reply("Selamat datang! Gunakan perintah /ytdl untuk mengunduh video atau audio dari YouTube");
+          }
+      }
     ];
 
     commands.forEach(cmd => {
@@ -272,3 +277,4 @@ module.exports = (bot) => {
         ]));
     });
 };
+
