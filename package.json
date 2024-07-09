@@ -4,7 +4,6 @@
   "description": "A video streaming application using JWPlayer and TMDB API",
   "main": "script.js",
   "dependencies": {
-    "express": "^4.19.2",
     "node-fetch": "^3.3.2"
   },
   "devDependencies": {},
