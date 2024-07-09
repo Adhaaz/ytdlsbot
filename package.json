@@ -1,0 +1,17 @@
+
+
+{
+  "name": "ytdl-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "telegraf": "^4.16.3",
+    "ytdl-core": "^4.11.5",
+    "path": "^0.12.7",
+    "fs-extra": "^11.2.0"
+  }
+}
