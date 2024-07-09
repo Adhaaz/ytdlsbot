@@ -4,6 +4,7 @@
   "name": "ytdl-bot",
   "version": "1.0.0",
   "main": "index.js",
+  "build": "npm build",
   "scripts": {
     "start": "node index.js"
   },
@@ -12,6 +13,7 @@
     "telegraf": "^4.16.3",
     "ytdl-core": "^4.11.5",
     "path": "^0.12.7",
-    "fs-extra": "^11.2.0"
+    "fs-extra": "^11.2.0",
+    "stream-buffers": "^3.0.3"
   }
 }
