@@ -1,9 +1,10 @@
-const urlParams = new URLSearchParams(window.location.search);
-const tmdbId = urlParams.get('tmdb');
-const season = urlParams.get('season');
-const episode = urlParams.get('episode');
+const pathSegments = window.location.pathname.split('/');
+const tmdbId = pathSegments[3];
+const season = pathSegments[4];
+const episode = pathSegments[5];
 const tmdbApiKey = '5622cafbfe8f8cfe358a29c53e19bba0';
 
+// Menentukan URL API berdasarkan segmen URL
 let apiUrl = '';
 if (season && episode) {
   apiUrl = `https://embedd-wheat.vercel.app/embed/tv/${tmdbId}/${season}/${episode}`;
@@ -11,6 +12,7 @@ if (season && episode) {
   apiUrl = `https://embedd-wheat.vercel.app/embed/movie/${tmdbId}`;
 }
 
+// Fetch data dari API
 fetch(apiUrl)
   .then(response => response.json())
   .then(data => {
