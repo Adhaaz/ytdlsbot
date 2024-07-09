@@ -1,11 +1,10 @@
 
 
+
 const { Telegraf, Markup } = require('telegraf');
 const ytdl = require('ytdl-core');
-const fs = require('fs-extra');
-const path = require('path');
+const streamBuffers = require('stream-buffers');
 
-const downloadDir = path.join(__dirname, 'downloads');
 const activeSessions = {};
 const ITEMS_PER_PAGE = 5;
 const MAX_FILE_SIZE_MB = 500;
@@ -190,14 +189,13 @@ module.exports = (bot) => {
             return;
         }
 
-        const videoPath = path.join(downloadDir, `${session.username}_${Date.now()}.mp4`);
-        const videoStream = ytdl(session.url, { format }).pipe(fs.createWriteStream(videoPath));
+        const videoStream = ytdl(session.url, { format });
+        const bufferStream = new streamBuffers.WritableStreamBuffer();
 
-        videoStream.on('finish', async () => {
-            await ctx.replyWithVideo({ source: videoPath });
-            fs.unlink(videoPath, (err) => {
-                if (err) console.error(`Gagal menghapus file: ${videoPath}`, err);
-            });
+        videoStream.pipe(bufferStream);
+
+        videoStream.on('end', async () => {
+            await ctx.replyWithVideo({ source: bufferStream.getContents() });
             delete activeSessions[groupId];
         });
 
@@ -219,14 +217,13 @@ module.exports = (bot) => {
             return;
         }
 
-        const audioPath = path.join(downloadDir, `${session.username}_${Date.now()}.mp3`);
-        const audioStream = ytdl(session.url, { format }).pipe(fs.createWriteStream(audioPath));
+        const audioStream = ytdl(session.url, { format });
+        const bufferStream = new streamBuffers.WritableStreamBuffer();
 
-        audioStream.on('finish', async () => {
-            await ctx.replyWithAudio({ source: audioPath });
-            fs.unlink(audioPath, (err) => {
-                if (err) console.error(`Gagal menghapus file: ${audioPath}`, err);
-            });
+        audioStream.pipe(bufferStream);
+
+        audioStream.on('end', async () => {
+            await ctx.replyWithAudio({ source: bufferStream.getContents() });
             delete activeSessions[groupId];
         });
 
