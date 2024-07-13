@@ -1,15 +1,18 @@
+
+
 {
-  "name": "Daflixx-Embedd",
+  "name": "ytdl-bot",
   "version": "1.0.0",
-  "description": "A video streaming application using JWPlayer and TMDB API",
-  "main": "script.js",
-  "dependencies": {
-    "node-fetch": "^3.3.2"
-  },
-  "devDependencies": {},
+  "main": "index.js",
   "scripts": {
-    "start": "node script.js"
+    "start": "node index.js"
   },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "express": "^4.19.2",
+    "telegraf": "^4.16.3",
+    "ytdl-core": "^4.11.5",
+    "path": "^0.12.7",
+    "fs-extra": "^11.2.0",
+    "stream-buffers": "^3.0.3"
+  }
 }

@@ -1,6 +1,6 @@
 
 
 module.exports = {
-    BOT_TOKEN: "7014683618:AAFPMWJCVI8ZuB2ruQxThtgD27CooZ7k8Rw",
-    URL: process.env.URL || 'https://ytdlsbot.vercel.app',
+    BOT_TOKEN: "6817115625:AAGZ2bt9sDF11Y41gRrQTCNIJuqjweTVDE0",
+    URL: process.env.URL || 'https://ytdlsbot.netlify.app',
 };
