@@ -1,7 +1,0 @@
-
-[build]
-  command = "node script"
-  publish = "public"
-
-[functions]
-  directory = "netlify/functions"
