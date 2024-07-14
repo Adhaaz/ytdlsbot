@@ -13,7 +13,6 @@ require('./bot')(bot);
 
 bot.start((ctx) => ctx.reply('Selamat datang! Gunakan perintah /ytdl untuk mengunduh video atau audio dari YouTube.'));
 
-const PORT = process.env.PORT || 3000;
 app.use(bot.webhookCallback('/secret-path'));
    bot.telegram.setWebhook(`https://female-crowd.surge.sh/secret-path`);
 
